@@ -1,3 +1,5 @@
+const calculatorResults = [];
+
 function calculator(firstNumber, secondNumber) {
   if (
     typeof firstNumber === "number" &&
@@ -7,7 +9,12 @@ function calculator(firstNumber, secondNumber) {
     return Math.sqrt(firstNumber);
   }
   if (!Number.isNaN(firstNumber) && !Number.isNaN(secondNumber)) {
-    return firstNumber + secondNumber;
+    calculatorResults.push(firstNumber + secondNumber);
+    calculatorResults.push(firstNumber - secondNumber);
+    calculatorResults.push(firstNumber * secondNumber);
+    calculatorResults.push(firstNumber / secondNumber);
+
+    return calculatorResults.join(",");
   }
 
   return new Error("It's not a number");
@@ -34,6 +41,18 @@ describe("Given a calculator function", () => {
       const sumResult = calculator(firstNumber, secondNumber);
 
       expect(sumResult).toBe(expectedResult);
+    });
+  });
+
+  describe("When it receives 2 numbers", () => {
+    test.only("Then it should return an string of the results of the sum, rest, multiply and divide oprations to those 2 numbers respectively", () => {
+      const firstNumber = 10;
+      const secondNumber = 10;
+      const expectedResult = "20,0,100,1";
+
+      const operationsResult = calculator(firstNumber, secondNumber);
+
+      expect(operationsResult).toBe(expectedResult);
     });
   });
 });
