@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Pasapalabra</title>
+</head>
+
+<body>
+    
+    <header class="title" id="title">PASAPALABRA</header>
+
+    <main>
+        <section class="info" id="info">
+            ?
+            <section class="rules" id="rules">
+                <h1>Game rules:</h1>
+                <p><span class="lineNumber">1.</span> To play the game, press the button and insert your name.<span class="lineBreak"></span>Name will affect ranking systems.</p>
+                <p><span class="lineNumber">2.</span> The game consists on guessing the word described for each letter, making a total of 26 words.</p>
+                <p><span class="lineNumber">3.</span> You will have 150 seconds to guess the full alphabet.</p>
+                <p><span class="lineNumber">4.</span> Letters will be marked as <span class="green">green</span> or <span  class="red">red</span> depending on whether the answer you guessed is <span class="green">right</span> or <span  class="red">wrong</span>.<span class="lineBreak"></span>For wrong answers you will be given the correct one.</p>
+                <p><span class="lineNumber">5.</span> If you don't know the word, you can save it for later by typing the word 'PASAPALABRA'.</p>
+            </section>
+        </section>
+
+        
+        <section class="circle" id="circle">
+            <button class="playButton" id="playButton">PLAY</button>
+
+            <section class="timerField">
+                <p class="timer" id="timer"></p>
+            </section>
+            
+            <section class="numberOfCorrectField">
+                <p class="numberOfCorrect" id="numberOfCorrect"></p>
+            </section>
+
+            <section class="alphabet" id="alphabet">
+                <ul>
+                    <li class="letter" id="letter0" style="--i:0;"><p id="alphabet0">A</p></li>
+                    <li class="letter" id="letter1" style="--i:1;"><p id="alphabet1">B</p></li>
+                    <li class="letter" id="letter2" style="--i:2;"><p id="alphabet2">C</p></li>
+                    <li class="letter" id="letter3" style="--i:3;"><p id="alphabet3">D</p></li>
+                    <li class="letter" id="letter4" style="--i:4;"><p id="alphabet4">E</p></li>
+                    <li class="letter" id="letter5" style="--i:5;"><p id="alphabet5">F</p></li>
+                    <li class="letter" id="letter6" style="--i:6;"><p id="alphabet6">G</p></li>
+                    <li class="letter" id="letter7" style="--i:7;"><p id="alphabet7">H</p></li>
+                    <li class="letter" id="letter8" style="--i:8;"><p id="alphabet8">I</p></li>
+                    <li class="letter" id="letter9" style="--i:9;"><p id="alphabet9">J</p></li>
+                    <li class="letter" id="letter10" style="--i:10;"><p id="alphabet10">K</p></li>
+                    <li class="letter" id="letter11" style="--i:11;"><p id="alphabet11">L</p></li>
+                    <li class="letter" id="letter12" style="--i:12;"><p id="alphabet12">M</p></li>
+                    <li class="letter" id="letter13" style="--i:13;"><p id="alphabet13">N</p></li>
+                    <li class="letter" id="letter14" style="--i:14;"><p id="alphabet14">O</p></li>
+                    <li class="letter" id="letter15" style="--i:15;"><p id="alphabet15">P</p></li>
+                    <li class="letter" id="letter16" style="--i:16;"><p id="alphabet16">Q</p></li>
+                    <li class="letter" id="letter17" style="--i:17;"><p id="alphabet17">R</p></li>
+                    <li class="letter" id="letter18" style="--i:18;"><p id="alphabet18">S</p></li>
+                    <li class="letter" id="letter19" style="--i:19;"><p id="alphabet19">T</p></li>
+                    <li class="letter" id="letter20" style="--i:20;"><p id="alphabet20">U</p></li>
+                    <li class="letter" id="letter21" style="--i:21;"><p id="alphabet21">V</p></li>
+                    <li class="letter" id="letter22" style="--i:22;"><p id="alphabet22">W</p></li>
+                    <li class="letter" id="letter23" style="--i:23;"><p id="alphabet23">X</p></li>
+                    <li class="letter" id="letter24" style="--i:24;"><p id="alphabet24">Y</p></li>
+                    <li class="letter" id="letter25" style="--i:25;"><p id="alphabet25">Z</p></li>
+                </ul>
+            </section>
+
+            <!-- Ask for user's name -->
+            <section class="nameContainer">
+                <p class="nameAsking" id="nameAsking">Insert your name.<span class="lineBreak"></span>This will affect the rankings.</p>
+                <input type="text" name="nameField" class="nameField" id="nameField" value="" placeholder="Your name here...">
+            </section>
+
+            <!-- To show messages to the user -->
+            <section class="textMessage">
+                <p class="messageToUser" id="messageToUser"></p>
+                <img src="./images/right.png" alt="strong dog" class="dogImg" id="strongCheems">
+                <img src="./images/wrong.png" alt="crying dog" class="dogImg" id="cryingCheems">
+                
+            </section>
+
+            <!-- Pasapalabra -->
+            <section class="pasapalabraContainer">
+                <p class="question" id="question"></p>
+                <input type="text" name="answer" class="answerField" id="answerField" value="" placeholder="Answer here...">    
+            </section>
+
+            <!-- Rankings -->
+            <section class="rankingContainer">
+                <p class="rankingText" id="rankingText"></p>
+                <p class="rankingTable" id="rankingTable"></p>
+            </section>
+        </section>
+
+
+    </main>
+
+
+
+
+    
+</body>
+
+<footer>Made By David Pegueroles.</footer>
+
+<script src="app.js"></script>
+</html>
