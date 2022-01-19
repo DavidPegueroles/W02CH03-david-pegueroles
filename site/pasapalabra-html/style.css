@@ -1,0 +1,422 @@
+/* Page General Formatting -------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    color: white;
+}
+
+html {
+    height: 100%;
+    background: #4b6cb7;
+    background-image: linear-gradient(170deg, #4b6cb7, #182848);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 2.75em;
+    text-align: center;
+    
+    margin: 0.5em;
+}
+
+
+
+/* Info panel --------------------------------- */
+.info {
+    width: 2rem;
+    height: 2rem;
+    color: black;
+    border: 0.1rem solid black;
+    border-radius: 50%;
+    background: lightgoldenrodyellow;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    user-select: none;
+    
+    z-index: 1000;
+    position: absolute;
+    right: 5em;
+    top: 5em;
+    float: right;
+}
+
+.info:hover {
+    background: rgb(211, 211, 175);
+}
+
+.rules {
+    width: 30rem;
+    max-height: 40rem;
+    background: rgba(250, 250, 210, 0.925);
+    border: 0.3rem solid black;
+    border-radius: 1rem;
+    border-top-right-radius: 0rem;
+    
+    padding: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    
+    position: absolute;
+    right: 2.2rem;
+    top: 1rem;
+    
+    visibility: hidden;
+    
+}
+
+.rules h1 {
+    font-size: 1.75rem;
+    color: black;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: underline;
+}
+
+.rules p {
+    font-size: 1.3rem;
+    color: black;
+    text-align: justify;
+    padding: 0.5rem;
+    
+}
+
+.lineBreak {
+    display: block;
+    padding: 0.3rem;
+}
+
+.lineNumber {
+    font-size: 1.6rem;
+    color: inherit;
+}
+
+.green {
+    color: rgb(34, 192, 34);
+}
+
+.red {
+    color: red;
+}
+
+.info:hover .rules {
+    visibility: visible;
+}
+
+
+
+/* Container Wrapper -------------------------- */
+.circle {
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+
+
+/* Play Button + active transition ------------ */
+
+.playButton {
+    width: 15rem;
+    height: 5rem;
+    font-size: 3rem;
+    background: #4b6cb7;
+    background-image: linear-gradient(170deg, #4b6cb7, #182848);
+    border: 0.3rem solid white;
+    border-radius: 1em;
+    cursor: pointer;
+    z-index: 10;
+    
+    transition: 4s ease;
+}
+
+.circle.active .playButton{
+    opacity: 0;
+    transform: rotate(720deg);
+    width: 5rem;
+    height: 1.5rem;
+    font-size: 0.5rem;
+    visibility: hidden;
+}
+
+
+
+/* Timer + number of correct answers ------------------------ */
+.timerField {
+    width: 5rem;
+    height: 2.5rem;
+    border: 0.3rem solid white;
+    border-radius: 1rem;
+    box-shadow: 0 0 0.2em black;
+    background: rgb(0,211,255);
+    background: radial-gradient(circle, rgba(0,211,255,1) 0%, rgba(32,112,150,1) 74%, rgba(28,49,98,1) 100%);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    user-select: none;
+    
+    z-index: 100;
+    position: absolute;
+    left: 2em;
+    top: 0em;
+    float: right;
+
+    transition: 1s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.timer {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.numberOfCorrectField {
+    width: 1.8rem;
+    height: 1.8rem;
+    border: 0.2rem solid white;
+    border-radius: 50%;
+    background: rgb(34, 192, 34);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    user-select: none;
+    
+    z-index: 100;
+    position: absolute;
+    left: 2.5em;
+    top: 3em;
+    float: right;
+
+    transition: 1s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.numberOfCorrect {
+    text-align: center;
+    font-size: 1rem;
+}
+
+
+
+/* Alphabet + active transition --------------- */
+.alphabet {
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+}
+
+.alphabet li {
+    list-style: none;
+
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 2rem;
+
+    border: 0.15rem solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0.2em black;
+    
+    background: rgb(0,211,255);
+    background: radial-gradient(circle, rgba(0,211,255,1) 0%, rgba(32,112,150,1) 74%, rgba(28,49,98,1) 100%);
+    opacity: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    left: 0;
+    
+    transform-origin: 20rem;
+    transform: rotate(0deg) translateX(17.5rem);    
+    transition: 0.5s ease;
+    transition-delay: calc(0.1s * var(--i));
+
+}
+
+.alphabet li p{
+    transform: 
+        rotateZ(calc(360deg / -26 * var(--i)))
+        rotate(-90deg);
+}
+
+.circle.active li {
+    opacity: 1;
+    transform: 
+        rotate(calc(360deg / 26 * var(--i)))
+        rotateZ(90deg);
+}
+
+
+
+/* Name + questions related fields ------------ */
+.nameContainer, .pasapalabraContainer {
+    position: absolute;
+    top: 10em;
+    width: 20rem;
+    height: 15rem;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 1s ease;
+}
+
+.nameAsking, .question {
+    position: absolute;
+
+    width: 18rem;
+    height: 15rem;
+    text-align: center;
+    font-size: 1.7rem;
+    background: transparent;
+
+    transition: opacity 0.5s ease-in-out;
+    transition-delay: 0.5s;
+}
+
+.nameField, .answerField {
+    position: absolute;
+    top: 10rem;
+    width: 15em;
+    height: 2em;
+    font-size: 1.7rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    border: 0.2rem solid rgb(29, 82, 182);
+    border-radius: 1rem;
+    outline: 0.1rem solid white;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: 1s ease;
+}
+
+.nameContainer, .nameField {
+    transition-delay: 3.5s;
+}
+
+.textMessage {
+    position: absolute;
+    top: 27rem;
+    width: 25rem;
+    height: 5rem;
+    font-size: 1.7rem;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 1s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.messageToUser {
+    position: absolute;
+    left: 6rem;
+    white-space: pre;
+}
+
+.dogImg {
+    position: absolute;
+    right: 20rem;
+    width: 5rem;
+    height: 5rem;
+
+    transition: 1s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+
+/* Name active ----------------------------- */
+.circle.active .nameContainer, .circle.active #nameField {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+/* Rankings -------------------------------- */
+
+.rankingContainer {
+    position: absolute;
+    width: 30rem;
+    height: 30rem;
+
+    white-space: pre;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: 2s;
+    transition-delay: 4s;
+}
+
+.rankingText {
+    position: absolute;
+    top: 1rem;
+    width: 30rem;
+    height: 7rem;
+    font-size: 1.5rem;
+
+    text-align: center;
+}
+
+.rankingTable {
+    position: absolute;
+    bottom: 0;
+    width: 30rem;
+    height: 20rem;
+    font-size: 1.5rem;
+}
+
+
+
+/* Footer -------------------------------- */
+footer {
+    background: rgb(5, 16, 22);
+    height: 2.3em;
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    position: fixed;
+    bottom: 0;   
+}
