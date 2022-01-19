@@ -1,7 +1,6 @@
 {
   "name": "ch2",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "npx jest --watchAll --verbose"
@@ -23,5 +22,6 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4",
     "jest": "^27.4.7"
-  }
+  },
+  "description": ""
 }
